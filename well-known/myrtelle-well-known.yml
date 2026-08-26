@@ -1,0 +1,52 @@
+generated: '2026-08-26'
+method: probed
+source: live HTTP probes of every Myrtelle-controlled host found during contract discovery
+note: >-
+  Every /.well-known/ path probed returned 404 on the reachable host and no HTTP response at all on
+  the corporate host, so NO WellKnown or SecurityTxt pointer is wired into apis.yml. This file records
+  a measured absence, not a served surface. myrtellegtx.com completes a TLS 1.3 handshake with a valid
+  certificate but never returns an HTTP response body to our crawler (TCP connect succeeds, request
+  times out), which reads as an edge/bot policy rather than a dead host — the site is demonstrably
+  live and indexed by search engines. myrtellegtx.com also serves a WILDCARD DNS record — api.,
+  docs., developer., dev., mcp. and portal. all resolve to the same 134.122.115.29 as the apex — so
+  subdomain resolution is NOT evidence of an API or docs host here; api.canavantreatment.com is
+  NXDOMAIN.
+hosts:
+- host: canavantreatment.com
+  note: Myrtelle's Canavan disease clinical-trial site (WordPress); wp-json title "Myrtelle Canavan Treatment".
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+- host: myrtellegtx.com
+  note: >-
+    Corporate site. TLS 1.3 handshake succeeds (cert valid to 2026-11-09) but no HTTP response was
+    ever returned to our crawler; status 0 records "no response", not a 404.
+  documents:
+  - path: /.well-known/security.txt
+    status: 0
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 0
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 0
+    file: null
+  - path: /.well-known/api-catalog
+    status: 0
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 0
+    file: null

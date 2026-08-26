@@ -1,7 +1,14 @@
 aid: myrtelle
 name: Myrtelle
-description: 'Myrtelle is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Myrtelle, Inc. is a clinical-stage biotechnology company headquartered in Wakefield,
+  Massachusetts, developing gene therapies for myelin-based disorders of the central nervous system.
+  Its lead program, MYR-101 (rAAV-Olig001-ASPA), is a first-in-class oligotrophic recombinant
+  adeno-associated virus gene therapy for Canavan disease, a rare and fatal childhood genetic brain
+  disease caused by mutations in the ASPA gene. The program is licensed exclusively worldwide from
+  Pfizer Inc., holds Orphan Drug, Fast Track and Rare Pediatric Disease designations in the US with
+  similar designations in Europe, and has reported Phase 1/2 interim results in Nature Medicine.
+  Myrtelle is a therapeutics developer, not a software company: it publishes no developer program,
+  API, SDK or machine-readable API contract, and is profiled here for network completeness only.'
 url: https://raw.githubusercontent.com/api-evangelist/myrtelle/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
@@ -12,6 +19,13 @@ created: '2026-08-26'
 modified: '2026-08-26'
 tags:
 - Company
+- Biotechnology
+- Gene Therapy
+- Life Sciences
+- Pharmaceuticals
+- Clinical Trials
+- Rare Disease
+- Healthcare
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +33,33 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/myrtelle-domain-security.yml
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://myrtellegtx.com/
+x-enrichment:
+  date: '2026-08-26'
+  status: minimal
+  artifacts_added: 2
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: not-a-software-company
+  detail: >-
+    Myrtelle is a clinical-stage gene therapy developer (lead program MYR-101 / rAAV-Olig001-ASPA for
+    Canavan disease) with no developer program of any kind — its reachable property
+    canavantreatment.com 404s on every OpenAPI, GraphQL, llms.txt, agent-card and /.well-known/ path
+    and exposes only stock WordPress core routes at /wp-json, no GitHub organization exists
+    (api.github.com/orgs/myrtelle returns 404), and no first-party package is published to npm or PyPI.
+  evidence:
+  - url: https://canavantreatment.com/openapi.json
+    status: 404
+  - url: https://canavantreatment.com/.well-known/agent-card.json
+    status: 404
+  - url: https://canavantreatment.com/llms.txt
+    status: 404
+  - url: https://api.github.com/orgs/myrtelle
+    status: 404
+  - url: https://pypi.org/pypi/myrtelle/json
+    status: 404
+  checked: '2026-08-26'
